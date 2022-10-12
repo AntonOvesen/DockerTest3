@@ -18,5 +18,6 @@ RUN dotnet publish "DockerTest3.csproj" -c Release -o /app/publish /p:UseAppHost
 
 FROM base AS final
 WORKDIR /app
+EXPOSE 3000
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "DockerTest3.dll"]
