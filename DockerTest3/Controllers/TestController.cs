@@ -10,9 +10,12 @@ namespace DockerTest3.Controllers
     public class TestController : ControllerBase
     {
         private readonly IMediator mediator;
-        public TestController(IMediator mediator)
+        private readonly ILogger<TestController> logger;
+
+        public TestController(IMediator mediator, ILogger<TestController> logger)
         {
             this.mediator = mediator;
+            this.logger = logger;
         }
 
         [HttpGet("[action]")]
